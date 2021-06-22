@@ -8,7 +8,6 @@ import Home from "../pages/Home/Home";
 const routes: RouteConfig[] = [
   {
     path: "/",
-    // eslint-disable-next-line react/display-name
     component: App,
     routes: [
       {
