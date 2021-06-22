@@ -1,6 +1,5 @@
-#root{
-  text-align: center;
-}
-a{
-  padding: 100px
+#App-tabbar{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }

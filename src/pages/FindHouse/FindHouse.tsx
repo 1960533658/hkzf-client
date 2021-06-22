@@ -1,0 +1,6 @@
+import React from "react";
+const FindHouse = () => {
+  return <h2>我是FindHouse组件</h2>;
+};
+
+export default FindHouse;
