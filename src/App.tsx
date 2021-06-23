@@ -1,33 +1,41 @@
 import "./App.css";
 
 import { TabBar } from "antd-mobile";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { renderRoutes, RouteConfig } from "react-router-config";
+
 function App(props: RouteConfig) {
-  // console.log(props);
+  // 获取 url
+  let pathname = props.location?.pathname === "/" ? "/home" : props.location?.pathname;
   // 被选中的值
-  let [selectedTab, setselectedTab] = useState("home");
+  let [selectedTab, setSelectedTab] = useState(pathname);
+  useEffect(() => {
+    pathname = props.location?.pathname === "/" ? "/home" : props.location?.pathname;
+    setSelectedTab(pathname);
+  }, [props.location?.pathname]);
+
+  // console.log(selectedTab);
   // 要渲染的数据
   let [tabBarList] = useState([
     {
       title: "首页",
       // 同时也代表路由地址
-      key: "home",
+      key: "/home",
       icon: <i className="iconfont icon-ind"></i>,
     },
     {
       title: "找房",
-      key: "findhouse",
+      key: "/findhouse",
       icon: <i className="iconfont icon-findHouse"></i>,
     },
     {
       title: "资讯",
-      key: "news",
+      key: "/news",
       icon: <i className="iconfont icon-infom"></i>,
     },
     {
       title: "我的",
-      key: "profile",
+      key: "/profile",
       icon: <i className="iconfont icon-my"></i>,
     },
   ]);
@@ -45,10 +53,11 @@ function App(props: RouteConfig) {
               selectedIcon={item.icon}
               selected={selectedTab === item.key}
               onPress={() => {
+                console.log(`selectedTab=${selectedTab}`, `item.key=${item.key}`);
                 // 路由跳转
                 props.history.push(item.key);
                 // 设置选中的值
-                setselectedTab(item.key);
+                setSelectedTab(item.key);
               }}></TabBar.Item>
           ))}
           {/* <TabBar.Item

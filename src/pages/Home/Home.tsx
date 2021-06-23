@@ -12,6 +12,10 @@ export default function Home() {
           src="https://zos.alipayobjects.com/rmsportal/AiyWuByWklrrUDlFignR.png"
           alt=""
         />
+        <img
+          src="https://zos.alipayobjects.com/rmsportal/TekJlZRVCjLFexlOCuWn.png"
+          alt=""
+        />
       </Carousel>
     </div>
   );
